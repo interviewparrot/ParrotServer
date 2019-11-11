@@ -7,12 +7,14 @@ import (
 	"flag"
 	"fmt"
 	"github.com/gorilla/websocket"
+	"github.com/go-redis/redis"
 	"github.com/magiconair/properties"
 	"log"
 	"net/http"
 	"os"
 	"server"
 	"time"
+
 )
 
 
@@ -30,7 +32,11 @@ func init() {
 	PROPERTIES = properties.MustLoadFile("resources/application-"+PROFILE+".properties", properties.UTF8)
 	server.BUCKET_NAME = PROPERTIES.MustGet("video-storage-bucket")
 	cloudstorage.StorageBucketInstance = cloudstorage.CreateStorageBucket(server.BUCKET_NAME)
-
+	client := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
 
 }
 

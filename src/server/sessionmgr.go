@@ -13,6 +13,7 @@ const(
 	SESSION_ENDED = "ENDED"
 
 )
+
 var SessionStore = map[string]*Session {
 }
 
