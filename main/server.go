@@ -1,20 +1,19 @@
 package main
 
 import (
-	"cloudstorage"
 	"encoding/base64"
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/gorilla/websocket"
 	"github.com/go-redis/redis"
+	"github.com/gorilla/websocket"
+	"github.com/interviewparrot/ParrotServer/cloudstorage"
 	"github.com/magiconair/properties"
 	"log"
 	"net/http"
 	"os"
-	"server"
+	"github.com/interviewparrot/ParrotServer/server"
 	"time"
-
 )
 
 
